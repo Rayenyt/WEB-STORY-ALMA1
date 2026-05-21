@@ -5,9 +5,14 @@
 
 <meta charset="UTF-8"/>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+/>
 
-<title>Love Vision Infinity X Ultra 💖</title>
+<title>
+Love Vision Infinity X Ultra 💖
+</title>
 
 <link
 href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -90,7 +95,8 @@ color:#111;
 }
 
 body.light .glass,
-body.light .msg{
+body.light .msg,
+body.light .card{
 
 background:
 rgba(255,255,255,.7);
@@ -105,6 +111,319 @@ background:
 rgba(0,0,0,.05);
 
 color:#111;
+}
+
+/* =========================
+ULTRA LOADING SCREEN
+========================= */
+
+#loader{
+
+position:fixed;
+
+inset:0;
+
+z-index:999999999;
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
+overflow:hidden;
+
+background:
+radial-gradient(
+circle at center,
+#24003d,
+#120021,
+#050010
+);
+
+transition:1.2s ease;
+}
+
+.loader-bg{
+
+position:absolute;
+
+inset:0;
+
+background:
+linear-gradient(
+135deg,
+rgba(255,0,110,.15),
+rgba(131,56,236,.15),
+rgba(0,212,255,.1)
+);
+
+filter:blur(50px);
+
+animation:bgPulse 6s infinite alternate;
+}
+
+@keyframes bgPulse{
+
+0%{
+transform:scale(1);
+opacity:.6;
+}
+
+100%{
+transform:scale(1.3);
+opacity:1;
+}
+
+}
+
+.loader-content{
+
+position:relative;
+
+text-align:center;
+
+padding:50px;
+
+border-radius:40px;
+
+background:
+rgba(255,255,255,.06);
+
+backdrop-filter:blur(25px);
+
+border:
+1px solid rgba(255,255,255,.12);
+
+box-shadow:
+0 0 50px rgba(255,0,110,.4),
+0 0 120px rgba(131,56,236,.3);
+
+animation:loaderFloat 4s ease-in-out infinite;
+}
+
+@keyframes loaderFloat{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+.loader-heart{
+
+font-size:120px;
+
+animation:
+heartBeat 1.2s infinite,
+heartGlow 2s infinite alternate;
+
+filter:
+drop-shadow(0 0 25px #ff006e)
+drop-shadow(0 0 60px #ff4da6);
+}
+
+@keyframes heartBeat{
+
+0%{
+transform:scale(1);
+}
+
+25%{
+transform:scale(1.15);
+}
+
+50%{
+transform:scale(1);
+}
+
+75%{
+transform:scale(1.18);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+@keyframes heartGlow{
+
+from{
+filter:
+drop-shadow(0 0 15px #ff006e)
+drop-shadow(0 0 40px #ff4da6);
+}
+
+to{
+filter:
+drop-shadow(0 0 35px #ff006e)
+drop-shadow(0 0 90px #ff4da6);
+}
+
+}
+
+.loader-title{
+
+margin-top:20px;
+
+font-size:55px;
+
+font-family:'Great Vibes',cursive;
+
+color:#ffd3ea;
+
+text-shadow:
+0 0 20px rgba(255,0,110,.7),
+0 0 60px rgba(255,0,110,.5);
+}
+
+.loader-text{
+
+margin-top:10px;
+
+font-size:18px;
+
+letter-spacing:2px;
+
+opacity:.9;
+
+animation:textFade 2s infinite;
+}
+
+@keyframes textFade{
+
+0%{
+opacity:.4;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+opacity:.4;
+}
+
+}
+
+.loader-bar{
+
+width:320px;
+
+height:14px;
+
+margin-top:35px;
+
+border-radius:50px;
+
+overflow:hidden;
+
+background:
+rgba(255,255,255,.08);
+
+box-shadow:
+inset 0 0 20px rgba(255,255,255,.1),
+0 0 20px rgba(255,0,110,.2);
+}
+
+.loader-progress{
+
+height:100%;
+
+width:0%;
+
+border-radius:50px;
+
+background:
+linear-gradient(
+90deg,
+#ff006e,
+#ff4da6,
+#8338ec,
+#00d4ff
+);
+
+background-size:300% 300%;
+
+animation:
+progressMove 4s linear forwards,
+gradientMove 3s infinite linear;
+}
+
+@keyframes progressMove{
+
+0%{
+width:0%;
+}
+
+100%{
+width:100%;
+}
+
+}
+
+@keyframes gradientMove{
+
+0%{
+background-position:0% 50%;
+}
+
+100%{
+background-position:100% 50%;
+}
+
+}
+
+.loader-glow{
+
+position:absolute;
+
+width:450px;
+height:450px;
+
+border-radius:50%;
+
+background:
+radial-gradient(
+circle,
+rgba(255,0,110,.25),
+transparent 70%
+);
+
+filter:blur(60px);
+
+z-index:-1;
+
+animation:rotateGlow 10s linear infinite;
+}
+
+@keyframes rotateGlow{
+
+from{
+transform:rotate(0deg);
+}
+
+to{
+transform:rotate(360deg);
+}
+
+}
+
+.loader-hide{
+
+opacity:0;
+
+visibility:hidden;
+
+pointer-events:none;
 }
 
 /* =========================
@@ -745,6 +1064,21 @@ font-size:70px;
 font-size:120px;
 }
 
+.loader-title{
+
+font-size:40px;
+}
+
+.loader-heart{
+
+font-size:90px;
+}
+
+.loader-bar{
+
+width:240px;
+}
+
 }
 
 </style>
@@ -752,6 +1086,40 @@ font-size:120px;
 </head>
 
 <body>
+
+<!-- =========================
+LOADER
+========================= -->
+
+<div id="loader">
+
+<div class="loader-bg"></div>
+
+<div class="loader-content">
+
+<div class="loader-heart">
+❤️
+</div>
+
+<h1 class="loader-title">
+Love Vision Infinity X
+</h1>
+
+<p class="loader-text">
+Loading Eternal Love...
+</p>
+
+<div class="loader-bar">
+
+<div class="loader-progress"></div>
+
+</div>
+
+<div class="loader-glow"></div>
+
+</div>
+
+</div>
 
 <div class="music-bars">
 
@@ -956,6 +1324,22 @@ onclick="closeImg()"
 <script>
 
 /* =========================
+LOADER
+========================= */
+
+window.addEventListener("load",()=>{
+
+setTimeout(()=>{
+
+document
+.getElementById("loader")
+.classList.add("loader-hide");
+
+},4200);
+
+});
+
+/* =========================
 BACKGROUND PARTICLES
 ========================= */
 
@@ -1154,7 +1538,6 @@ window.closeImg =
 closeImg;
 
 </script>
-
 <script type="module">
 
 import { createClient }
@@ -1250,7 +1633,7 @@ setInterval(updateTimer,1000);
 updateTimer();
 
 /* =========================
-COPY
+COPY MESSAGE
 ========================= */
 
 async function copyText(text){
@@ -1510,4 +1893,4 @@ loadMessages();
 
 </body>
 
-</html>
+  </html>
