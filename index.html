@@ -73,6 +73,16 @@ linear-gradient(
 color:#111;
 }
 
+body.light input,
+body.light textarea,
+body.light select{
+
+background:
+rgba(0,0,0,.05);
+
+color:#111;
+}
+
 /* =========================
 LOADER
 ========================= */
@@ -94,8 +104,6 @@ radial-gradient(circle,#ff006e,#120018,#000);
 
 z-index:999999;
 
-overflow:hidden;
-
 transition:1s;
 }
 
@@ -104,8 +112,7 @@ transition:1s;
 font-size:120px;
 
 animation:
-pulse 1.3s infinite,
-glow 2s infinite alternate;
+pulse 1.3s infinite;
 }
 
 .loader-title{
@@ -115,17 +122,6 @@ font-size:55px;
 font-family:'Great Vibes',cursive;
 
 margin-top:20px;
-
-background:
-linear-gradient(45deg,#fff,#ff9ad5,#fff);
-
--webkit-background-clip:text;
-
--webkit-text-fill-color:transparent;
-
-background-size:300%;
-
-animation:shine 3s linear infinite;
 }
 
 .loader-text{
@@ -189,20 +185,8 @@ width:100%;
 
 }
 
-@keyframes shine{
-
-0%{
-background-position:0%;
-}
-
-100%{
-background-position:300%;
-}
-
-}
-
 /* =========================
-BACKGROUND PARTICLES
+BACKGROUND
 ========================= */
 
 .bg{
@@ -300,69 +284,7 @@ linear-gradient(45deg,#ff1744,#b00020);
 }
 
 /* =========================
-MUSIC VISUALIZER
-========================= */
-
-.music-visualizer{
-
-position:fixed;
-
-top:20px;
-left:20px;
-
-display:flex;
-gap:5px;
-
-z-index:999;
-}
-
-.music-visualizer span{
-
-width:6px;
-height:20px;
-
-border-radius:20px;
-
-background:
-linear-gradient(#ff006e,#8338ec);
-
-animation:musicWave 1s infinite ease-in-out;
-}
-
-.music-visualizer span:nth-child(2){
-animation-delay:.2s;
-}
-
-.music-visualizer span:nth-child(3){
-animation-delay:.4s;
-}
-
-.music-visualizer span:nth-child(4){
-animation-delay:.6s;
-}
-
-.music-visualizer span:nth-child(5){
-animation-delay:.8s;
-}
-
-@keyframes musicWave{
-
-0%{
-height:15px;
-}
-
-50%{
-height:45px;
-}
-
-100%{
-height:15px;
-}
-
-}
-
-/* =========================
-MAIN
+CONTAINER
 ========================= */
 
 .container{
@@ -380,7 +302,7 @@ padding-top:130px;
 }
 
 /* =========================
-CARDS
+CARD
 ========================= */
 
 .card{
@@ -402,19 +324,6 @@ border:
 text-align:center;
 
 transition:.4s;
-
-box-shadow:
-0 0 35px rgba(255,0,110,.15);
-}
-
-.card:hover{
-
-transform:
-translateY(-10px)
-scale(1.02);
-
-box-shadow:
-0 0 45px rgba(255,0,110,.4);
 }
 
 .card-header{
@@ -440,13 +349,6 @@ border:
 5px solid rgba(255,255,255,.25);
 
 cursor:pointer;
-
-transition:.4s;
-}
-
-.card img:hover{
-
-transform:scale(1.08);
 }
 
 .card h2{
@@ -459,8 +361,6 @@ font-size:32px;
 .card p{
 
 padding:15px 20px;
-
-opacity:.9;
 }
 
 .badge{
@@ -475,9 +375,6 @@ border-radius:30px;
 
 background:
 linear-gradient(45deg,#ff006e,#ff4da6);
-
-box-shadow:
-0 0 20px rgba(255,0,110,.4);
 }
 
 /* =========================
@@ -496,9 +393,6 @@ font-size:140px;
 cursor:pointer;
 
 animation:pulse 1.5s infinite;
-
-text-shadow:
-0 0 45px #ff2d75;
 }
 
 @keyframes pulse{
@@ -517,20 +411,6 @@ transform:scale(1);
 
 }
 
-@keyframes glow{
-
-from{
-filter:
-drop-shadow(0 0 10px #ff006e);
-}
-
-to{
-filter:
-drop-shadow(0 0 40px #ff4da6);
-}
-
-}
-
 .center h1{
 
 font-size:75px;
@@ -538,20 +418,6 @@ font-size:75px;
 font-family:'Great Vibes',cursive;
 
 color:#ffb3da;
-
-animation:glowText 2s infinite alternate;
-}
-
-@keyframes glowText{
-
-from{
-text-shadow:0 0 20px rgba(255,0,110,.4);
-}
-
-to{
-text-shadow:0 0 45px rgba(255,0,110,.9);
-}
-
 }
 
 .love-counter{
@@ -565,12 +431,7 @@ border-radius:25px;
 background:
 rgba(255,255,255,.08);
 
-backdrop-filter:blur(18px);
-
 font-size:18px;
-
-box-shadow:
-0 0 25px rgba(255,0,110,.2);
 }
 
 /* =========================
@@ -599,9 +460,6 @@ border-radius:30px;
 
 border:
 1px solid rgba(255,255,255,.1);
-
-box-shadow:
-0 0 30px rgba(255,0,110,.15);
 }
 
 .section h2{
@@ -611,72 +469,6 @@ text-align:center;
 margin-bottom:25px;
 
 font-size:38px;
-}
-
-/* =========================
-QUOTE
-========================= */
-
-.quote{
-
-font-size:24px;
-
-line-height:1.8;
-
-text-align:center;
-}
-
-/* =========================
-LOVE LETTER
-========================= */
-
-#typingText{
-
-font-size:20px;
-
-line-height:1.8;
-
-min-height:100px;
-
-text-align:center;
-}
-
-/* =========================
-GALLERY
-========================= */
-
-.gallery{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(220px,1fr));
-
-gap:20px;
-}
-
-.gallery img{
-
-width:100%;
-height:250px;
-
-object-fit:cover;
-
-border-radius:25px;
-
-cursor:pointer;
-
-transition:.4s;
-}
-
-.gallery img:hover{
-
-transform:
-scale(1.04)
-rotate(1deg);
-
-box-shadow:
-0 0 35px rgba(255,0,110,.4);
 }
 
 /* =========================
@@ -714,14 +506,6 @@ height:140px;
 resize:none;
 }
 
-input:focus,
-textarea:focus,
-select:focus{
-
-box-shadow:
-0 0 20px rgba(255,0,110,.35);
-}
-
 /* =========================
 MESSAGES
 ========================= */
@@ -738,11 +522,9 @@ backdrop-filter:blur(18px);
 
 border:
 1px solid rgba(255,255,255,.08);
-}
 
-.msg[data-style="pink"]{
-background:rgba(255,0,110,.15);
-border-left:5px solid #ff006e;
+background:
+rgba(255,255,255,.06);
 }
 
 .user-tag{
@@ -760,6 +542,17 @@ font-weight:700;
 margin-bottom:15px;
 
 background:#ff006e;
+}
+
+.msg-actions{
+
+display:flex;
+
+gap:12px;
+
+margin-top:20px;
+
+flex-wrap:wrap;
 }
 
 /* =========================
@@ -796,17 +589,37 @@ font-weight:700;
 }
 
 /* =========================
-FOOTER
+TOAST
 ========================= */
 
-.footer{
+#toast{
 
-margin:70px 0 40px;
+position:fixed;
 
-text-align:center;
+bottom:30px;
 
-opacity:.8;
+left:50%;
+
+transform:translateX(-50%);
+
+background:rgba(0,0,0,.8);
+
+color:white;
+
+padding:12px 18px;
+
+border-radius:20px;
+
+z-index:999999;
+
+opacity:0;
+
+transition:.3s;
 }
+
+/* =========================
+MODAL
+========================= */
 
 .modal{
 
@@ -819,7 +632,8 @@ display:none;
 justify-content:center;
 align-items:center;
 
-background:rgba(0,0,0,.9);
+background:
+rgba(0,0,0,.9);
 
 z-index:99999;
 }
@@ -827,9 +641,17 @@ z-index:99999;
 .modal img{
 
 width:85%;
+
 max-width:450px;
 
 border-radius:25px;
+}
+
+.footer{
+
+margin:70px 0 40px;
+
+text-align:center;
 }
 
 </style>
@@ -869,16 +691,6 @@ Loading your beautiful love story...
 <button onclick="toggleMusic()">
 🎵 Music
 </button>
-
-</div>
-
-<div class="music-visualizer">
-
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
 
 </div>
 
@@ -951,33 +763,6 @@ The light that makes my world beautiful.
 <div class="badge">
 Soul Mate ✨
 </div>
-
-</div>
-
-</div>
-
-<div class="section">
-
-<div class="glass quote">
-
-✨
-"Real love is not finding someone perfect,
-it's loving someone imperfect perfectly."
-✨
-
-</div>
-
-</div>
-
-<div class="section">
-
-<div class="glass">
-
-<h2>
-💌 Secret Love Letter
-</h2>
-
-<p id="typingText"></p>
 
 </div>
 
@@ -1091,6 +876,8 @@ onclick="closeImg()"
 
 </div>
 
+<div id="toast"></div>
+
 <script>
 
 /* =========================
@@ -1130,34 +917,6 @@ s.style.animationDuration =
 bg.appendChild(s);
 
 }
-
-/* =========================
-LOVE LETTER
-========================= */
-
-const loveMessage =
-"Every moment with you feels like a beautiful dream that I never want to end. ❤️";
-
-let index = 0;
-
-function typingEffect(){
-
-if(index < loveMessage.length){
-
-document
-.getElementById("typingText")
-.innerHTML +=
-loveMessage.charAt(index);
-
-index++;
-
-setTimeout(typingEffect,45);
-
-}
-
-}
-
-typingEffect();
 
 /* =========================
 MODE
@@ -1235,12 +994,33 @@ window.closeImg =
 closeImg;
 
 /* =========================
+TOAST
+========================= */
+
+function showToast(msg){
+
+const t =
+document.getElementById("toast");
+
+t.innerText = msg;
+
+t.style.opacity = "1";
+
+setTimeout(()=>{
+
+t.style.opacity = "0";
+
+},1500);
+
+}
+
+/* =========================
 HEART EFFECT
 ========================= */
 
 function heartClick(e){
 
-for(let i=0;i<12;i++){
+for(let i=0;i<10;i++){
 
 const heart =
 document.createElement("div");
@@ -1263,9 +1043,6 @@ heart.style.transition =
 
 heart.style.pointerEvents =
 "none";
-
-heart.style.zIndex =
-"99999";
 
 document.body.appendChild(heart);
 
@@ -1295,61 +1072,6 @@ heart.remove();
 
 window.heartClick =
 heartClick;
-
-/* =========================
-TOAST
-========================= */
-
-function showToast(msg){
-
-let t =
-document.getElementById("toast");
-
-if(!t){
-
-t =
-document.createElement("div");
-
-t.id = "toast";
-
-document.body.appendChild(t);
-
-}
-
-t.innerText = msg;
-
-t.style.position = "fixed";
-
-t.style.bottom = "30px";
-
-t.style.left = "50%";
-
-t.style.transform =
-"translateX(-50%)";
-
-t.style.background =
-"rgba(0,0,0,.8)";
-
-t.style.color = "#fff";
-
-t.style.padding =
-"10px 18px";
-
-t.style.borderRadius =
-"20px";
-
-t.style.zIndex =
-"999999";
-
-t.style.opacity = "1";
-
-setTimeout(()=>{
-
-t.style.opacity = "0";
-
-},1500);
-
-}
 
 </script>
 
@@ -1429,7 +1151,43 @@ setInterval(updateLoveTimer,1000);
 updateLoveTimer();
 
 /* =========================
-MESSAGES
+COPY
+========================= */
+
+async function copyText(text){
+
+try{
+
+await navigator.clipboard.writeText(text);
+
+showToast("Copied ❤️");
+
+}catch(err){
+
+const temp =
+document.createElement("textarea");
+
+temp.value = text;
+
+document.body.appendChild(temp);
+
+temp.select();
+
+document.execCommand("copy");
+
+temp.remove();
+
+showToast("Copied ❤️");
+
+}
+
+}
+
+window.copyText =
+copyText;
+
+/* =========================
+LOAD MESSAGES
 ========================= */
 
 async function loadMessages(){
@@ -1438,22 +1196,30 @@ const container =
 document.getElementById("messages");
 
 container.innerHTML =
-`<div class="msg" data-style="pink">
+`
+<div class="msg">
 Loading...
-</div>`;
+</div>
+`;
 
 const { data , error } =
 await supabase
 .from("love_messages")
 .select("*")
-.order("id",{ ascending:false });
+.order("id",{
+ascending:false
+});
 
 if(error){
 
 container.innerHTML =
-`<div class="msg">
+`
+<div class="msg">
 Error loading messages
-</div>`;
+</div>
+`;
+
+console.log(error);
 
 return;
 
@@ -1464,9 +1230,11 @@ container.innerHTML = "";
 if(data.length === 0){
 
 container.innerHTML =
-`<div class="msg">
+`
+<div class="msg">
 No messages yet ❤️
-</div>`;
+</div>
+`;
 
 return;
 
@@ -1479,28 +1247,29 @@ document.createElement("div");
 
 div.className = "msg";
 
-div.setAttribute(
-"data-style",
-msg.style || "pink"
-);
-
 div.innerHTML = `
 
 <div class="user-tag">
-${msg.username}
+
+${msg.username || "Anonymous"}
+
 </div>
 
 <h3>
+
 ${msg.title}
+
 </h3>
 
 <br>
 
 <p>
+
 ${msg.text}
+
 </p>
 
-<div style="display:flex;gap:10px;margin-top:20px;">
+<div class="msg-actions">
 
 <button onclick='copyText(${JSON.stringify(msg.text)})'>
 📋 Copy
@@ -1573,14 +1342,15 @@ await supabase
 
 username,
 title,
-text,
-style:"pink"
+text
 
 }]);
 
 if(error){
 
-showToast("Error");
+console.log(error);
+
+showToast("Error saving");
 
 return;
 
@@ -1590,7 +1360,7 @@ document.getElementById("username").value = "";
 document.getElementById("title").value = "";
 document.getElementById("text").value = "";
 
-showToast("Added ❤️");
+showToast("Message Added ❤️");
 
 loadMessages();
 
@@ -1600,15 +1370,22 @@ window.addMsg =
 addMsg;
 
 /* =========================
-DELETE
+DELETE MESSAGE
 ========================= */
 
 async function deleteMessage(id){
+
+const ask =
+confirm("Delete this message?");
+
+if(!ask) return;
 
 await supabase
 .from("love_messages")
 .delete()
 .eq("id",id);
+
+showToast("Deleted 🗑");
 
 loadMessages();
 
@@ -1623,10 +1400,17 @@ DELETE ALL
 
 async function deleteAllMsgs(){
 
+const ask =
+confirm("Delete all messages?");
+
+if(!ask) return;
+
 await supabase
 .from("love_messages")
 .delete()
 .neq("id",0);
+
+showToast("All deleted");
 
 loadMessages();
 
@@ -1636,47 +1420,11 @@ window.deleteAllMsgs =
 deleteAllMsgs;
 
 /* =========================
-COPY
-========================= */
-
-async function copyText(text){
-
-try{
-
-await navigator.clipboard.writeText(text);
-
-showToast("Copied ❤️");
-
-}catch{
-
-const temp =
-document.createElement("textarea");
-
-temp.value = text;
-
-document.body.appendChild(temp);
-
-temp.select();
-
-document.execCommand("copy");
-
-temp.remove();
-
-showToast("Copied ❤️");
-
-}
-
-}
-
-window.copyText =
-copyText;
-
-/* =========================
 REALTIME
 ========================= */
 
 supabase
-.channel("messages")
+.channel("love-room")
 
 .on(
 "postgres_changes",
