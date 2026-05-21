@@ -5,14 +5,9 @@
 
 <meta charset="UTF-8"/>
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0"
-/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>
-Love Vision Infinity X 💖
-</title>
+<title>Love Vision Infinity X Ultra 💖</title>
 
 <link
 href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -39,21 +34,42 @@ body{
 
 font-family:'Poppins',sans-serif;
 
-background:
-linear-gradient(
-135deg,
-#0f0c29,
-#302b63,
-#24243e
-);
-
-color:white;
-
 overflow-x:hidden;
 
 min-height:100vh;
 
+background:
+linear-gradient(
+135deg,
+#090015,
+#13002e,
+#22003c,
+#32004f
+);
+
+background-size:400% 400%;
+
+animation:bgMove 15s ease infinite;
+
+color:white;
+
 transition:.5s;
+}
+
+@keyframes bgMove{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
 }
 
 /* =========================
@@ -65,17 +81,25 @@ body.light{
 background:
 linear-gradient(
 135deg,
-#ffe0ec,
+#fff0f7,
 #ffffff,
-#e6f7ff
+#eef8ff
 );
 
 color:#111;
 }
 
+body.light .glass,
+body.light .msg{
+
+background:
+rgba(255,255,255,.7);
+
+color:#111;
+}
+
 body.light input,
-body.light textarea,
-body.light select{
+body.light textarea{
 
 background:
 rgba(0,0,0,.05);
@@ -84,109 +108,7 @@ color:#111;
 }
 
 /* =========================
-LOADER
-========================= */
-
-#loader{
-
-position:fixed;
-
-inset:0;
-
-display:flex;
-
-justify-content:center;
-align-items:center;
-flex-direction:column;
-
-background:
-radial-gradient(circle,#ff006e,#120018,#000);
-
-z-index:999999;
-
-transition:1s;
-}
-
-.loader-heart{
-
-font-size:120px;
-
-animation:
-pulse 1.3s infinite;
-}
-
-.loader-title{
-
-font-size:55px;
-
-font-family:'Great Vibes',cursive;
-
-margin-top:20px;
-}
-
-.loader-text{
-
-margin-top:15px;
-
-font-size:18px;
-
-opacity:.85;
-}
-
-.loader-bar{
-
-width:320px;
-height:12px;
-
-margin-top:35px;
-
-border-radius:30px;
-
-overflow:hidden;
-
-background:
-rgba(255,255,255,.08);
-}
-
-.loader-progress{
-
-width:0%;
-height:100%;
-
-border-radius:30px;
-
-background:
-linear-gradient(
-90deg,
-#ff006e,
-#ff4da6,
-#8338ec
-);
-
-animation:load 4s ease forwards;
-}
-
-.loader-hide{
-
-opacity:0;
-
-visibility:hidden;
-}
-
-@keyframes load{
-
-0%{
-width:0%;
-}
-
-100%{
-width:100%;
-}
-
-}
-
-/* =========================
-BACKGROUND
+BACKGROUND PARTICLES
 ========================= */
 
 .bg{
@@ -204,8 +126,8 @@ z-index:-1;
 
 position:absolute;
 
-width:4px;
-height:4px;
+width:5px;
+height:5px;
 
 border-radius:50%;
 
@@ -223,7 +145,7 @@ transform:translateY(100vh);
 }
 
 to{
-transform:translateY(-100vh);
+transform:translateY(-120vh);
 }
 
 }
@@ -240,29 +162,32 @@ top:20px;
 right:20px;
 
 display:flex;
-gap:10px;
 
-z-index:999;
+gap:12px;
+
+z-index:9999;
 }
 
 button{
 
-padding:13px 20px;
+padding:13px 22px;
 
 border:none;
 
-border-radius:18px;
+border-radius:20px;
 
 cursor:pointer;
 
-font-weight:600;
-
-font-size:14px;
+font-weight:700;
 
 color:white;
 
 background:
-linear-gradient(45deg,#ff006e,#8338ec);
+linear-gradient(
+45deg,
+#ff006e,
+#8338ec
+);
 
 box-shadow:
 0 0 25px rgba(255,0,110,.4);
@@ -273,126 +198,131 @@ transition:.3s;
 button:hover{
 
 transform:
-translateY(-3px)
-scale(1.04);
+translateY(-4px)
+scale(1.05);
+
+box-shadow:
+0 0 40px rgba(255,0,110,.7);
 }
 
 .delete-btn{
 
 background:
-linear-gradient(45deg,#ff1744,#b00020);
+linear-gradient(
+45deg,
+#ff1744,
+#b00020
+);
 }
 
 /* =========================
-CONTAINER
+MUSIC VISUALIZER
 ========================= */
 
-.container{
+.music-bars{
+
+position:fixed;
+
+top:20px;
+left:20px;
 
 display:flex;
 
-justify-content:center;
-align-items:center;
+gap:5px;
 
-flex-wrap:wrap;
+z-index:9999;
+}
 
-gap:60px;
+.music-bars span{
+
+width:6px;
+
+height:20px;
+
+border-radius:20px;
+
+background:
+linear-gradient(#ff006e,#8338ec);
+
+animation:bars 1s infinite ease-in-out;
+}
+
+.music-bars span:nth-child(2){
+animation-delay:.2s;
+}
+
+.music-bars span:nth-child(3){
+animation-delay:.4s;
+}
+
+.music-bars span:nth-child(4){
+animation-delay:.6s;
+}
+
+.music-bars span:nth-child(5){
+animation-delay:.8s;
+}
+
+@keyframes bars{
+
+0%{
+height:15px;
+}
+
+50%{
+height:45px;
+}
+
+100%{
+height:15px;
+}
+
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
 
 padding-top:130px;
-}
-
-/* =========================
-CARD
-========================= */
-
-.card{
-
-width:320px;
-
-border-radius:35px;
-
-overflow:hidden;
-
-background:
-rgba(255,255,255,.06);
-
-backdrop-filter:blur(18px);
-
-border:
-1px solid rgba(255,255,255,.1);
-
-text-align:center;
-
-transition:.4s;
-}
-
-.card-header{
-
-height:160px;
-
-background:
-linear-gradient(135deg,#ff006e,#8338ec);
-}
-
-.card img{
-
-width:160px;
-height:160px;
-
-object-fit:cover;
-
-border-radius:50%;
-
-margin-top:-80px;
-
-border:
-5px solid rgba(255,255,255,.25);
-
-cursor:pointer;
-}
-
-.card h2{
-
-margin-top:15px;
-
-font-size:32px;
-}
-
-.card p{
-
-padding:15px 20px;
-}
-
-.badge{
-
-display:inline-block;
-
-margin-bottom:30px;
-
-padding:12px 22px;
-
-border-radius:30px;
-
-background:
-linear-gradient(45deg,#ff006e,#ff4da6);
-}
-
-/* =========================
-CENTER
-========================= */
-
-.center{
 
 text-align:center;
 }
 
-.heart{
+.hero h1{
 
-font-size:140px;
+font-size:95px;
 
-cursor:pointer;
+font-family:'Great Vibes',cursive;
+
+color:#ffb6dd;
+
+text-shadow:
+0 0 25px rgba(255,0,110,.8);
+}
+
+.hero p{
+
+margin-top:10px;
+
+font-size:20px;
+
+opacity:.9;
+}
+
+.main-heart{
+
+font-size:150px;
 
 animation:pulse 1.5s infinite;
+
+cursor:pointer;
+
+margin-bottom:20px;
+
+text-shadow:
+0 0 40px #ff2d75;
 }
 
 @keyframes pulse{
@@ -411,64 +341,217 @@ transform:scale(1);
 
 }
 
-.center h1{
+/* =========================
+CARDS
+========================= */
 
-font-size:75px;
+.cards{
 
-font-family:'Great Vibes',cursive;
+display:flex;
 
-color:#ffb3da;
+justify-content:center;
+
+flex-wrap:wrap;
+
+gap:40px;
+
+margin-top:70px;
 }
 
-.love-counter{
+.card{
 
-margin-top:20px;
+width:320px;
 
-padding:15px 30px;
+border-radius:35px;
 
-border-radius:25px;
+overflow:hidden;
 
 background:
 rgba(255,255,255,.08);
 
-font-size:18px;
+backdrop-filter:blur(18px);
+
+border:
+1px solid rgba(255,255,255,.1);
+
+text-align:center;
+
+transition:.4s;
+}
+
+.card:hover{
+
+transform:
+translateY(-10px)
+scale(1.02);
+}
+
+.card-top{
+
+height:160px;
+
+background:
+linear-gradient(
+135deg,
+#ff006e,
+#8338ec
+);
+}
+
+.card img{
+
+width:160px;
+height:160px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+margin-top:-80px;
+
+border:
+5px solid rgba(255,255,255,.3);
+}
+
+.card h2{
+
+margin-top:15px;
+
+font-size:32px;
+}
+
+.card p{
+
+padding:15px 25px;
+}
+
+.badge{
+
+display:inline-block;
+
+margin-bottom:25px;
+
+padding:12px 20px;
+
+border-radius:30px;
+
+background:
+linear-gradient(
+45deg,
+#ff006e,
+#ff4da6
+);
 }
 
 /* =========================
-SECTION
+SECTIONS
 ========================= */
 
 .section{
 
-width:90%;
+width:92%;
 
-max-width:950px;
+max-width:1000px;
 
-margin:70px auto;
+margin:80px auto;
 }
 
 .glass{
 
 background:
-rgba(255,255,255,.06);
+rgba(255,255,255,.07);
 
 backdrop-filter:blur(18px);
 
-padding:30px;
+padding:35px;
 
-border-radius:30px;
+border-radius:35px;
 
 border:
 1px solid rgba(255,255,255,.1);
+
+box-shadow:
+0 0 30px rgba(255,0,110,.15);
 }
 
 .section h2{
 
 text-align:center;
 
-margin-bottom:25px;
+margin-bottom:30px;
 
-font-size:38px;
+font-size:40px;
+}
+
+/* =========================
+TIMER
+========================= */
+
+.timer-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(140px,1fr));
+
+gap:20px;
+}
+
+.timer-box{
+
+padding:25px;
+
+border-radius:25px;
+
+background:
+rgba(255,255,255,.08);
+
+text-align:center;
+}
+
+.timer-box span{
+
+font-size:45px;
+
+font-weight:700;
+}
+
+/* =========================
+GALLERY
+========================= */
+
+.gallery{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:20px;
+}
+
+.gallery img{
+
+width:100%;
+
+height:250px;
+
+object-fit:cover;
+
+border-radius:25px;
+
+transition:.4s;
+
+cursor:pointer;
+}
+
+.gallery img:hover{
+
+transform:
+scale(1.05);
+
+box-shadow:
+0 0 35px rgba(255,0,110,.5);
 }
 
 /* =========================
@@ -476,8 +559,7 @@ INPUTS
 ========================= */
 
 input,
-textarea,
-select{
+textarea{
 
 width:100%;
 
@@ -506,6 +588,13 @@ height:140px;
 resize:none;
 }
 
+input:focus,
+textarea:focus{
+
+box-shadow:
+0 0 20px rgba(255,0,110,.4);
+}
+
 /* =========================
 MESSAGES
 ========================= */
@@ -518,13 +607,27 @@ padding:25px;
 
 border-radius:28px;
 
-backdrop-filter:blur(18px);
+background:
+rgba(255,255,255,.07);
 
 border:
 1px solid rgba(255,255,255,.08);
 
-background:
-rgba(255,255,255,.06);
+animation:show .4s ease;
+}
+
+@keyframes show{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
 }
 
 .user-tag{
@@ -535,13 +638,13 @@ padding:8px 15px;
 
 border-radius:30px;
 
+background:#ff006e;
+
 font-size:12px;
 
 font-weight:700;
 
 margin-bottom:15px;
-
-background:#ff006e;
 }
 
 .msg-actions{
@@ -553,39 +656,6 @@ gap:12px;
 margin-top:20px;
 
 flex-wrap:wrap;
-}
-
-/* =========================
-TIMER
-========================= */
-
-.timer-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(120px,1fr));
-
-gap:20px;
-}
-
-.timer-box{
-
-padding:25px;
-
-border-radius:25px;
-
-background:
-rgba(255,255,255,.08);
-
-text-align:center;
-}
-
-.timer-box span{
-
-font-size:42px;
-
-font-weight:700;
 }
 
 /* =========================
@@ -602,11 +672,10 @@ left:50%;
 
 transform:translateX(-50%);
 
-background:rgba(0,0,0,.8);
+background:
+rgba(0,0,0,.8);
 
-color:white;
-
-padding:12px 18px;
+padding:12px 20px;
 
 border-radius:20px;
 
@@ -647,11 +716,35 @@ max-width:450px;
 border-radius:25px;
 }
 
+/* =========================
+FOOTER
+========================= */
+
 .footer{
 
 margin:70px 0 40px;
 
 text-align:center;
+
+opacity:.8;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+.hero h1{
+
+font-size:70px;
+}
+
+.main-heart{
+
+font-size:120px;
+}
+
 }
 
 </style>
@@ -660,25 +753,13 @@ text-align:center;
 
 <body>
 
-<div id="loader">
+<div class="music-bars">
 
-<div class="loader-heart">
-❤️
-</div>
-
-<div class="loader-title">
-Love Vision Infinity X
-</div>
-
-<div class="loader-text">
-Loading your beautiful love story...
-</div>
-
-<div class="loader-bar">
-
-<div class="loader-progress"></div>
-
-</div>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
 
 </div>
 
@@ -696,22 +777,37 @@ Loading your beautiful love story...
 
 <div class="bg" id="bg"></div>
 
-<div class="container">
+<div class="hero">
+
+<div
+class="main-heart"
+onclick="heartExplosion(event)"
+>
+❤️
+</div>
+
+<h1>
+Rayen & Alma
+</h1>
+
+<p>
+Two Souls • One Endless Love
+</p>
+
+</div>
+
+<div class="cards">
 
 <div class="card">
 
-<div class="card-header"></div>
+<div class="card-top"></div>
 
-<img
-src="https://files.catbox.moe/f7x9f6.jpg"
-onclick="openImg(this.src)"
-/>
+<img src="https://files.catbox.moe/f7x9f6.jpg"/>
 
 <h2>Rayen</h2>
 
 <p>
-My heart sees only one direction:
-love forever.
+My heart belongs to Alma forever.
 </p>
 
 <div class="badge">
@@ -720,48 +816,82 @@ Forever Mine ❤️
 
 </div>
 
-<div class="center">
-
-<div
-class="heart"
-onclick="heartClick(event)"
->
-❤️
-</div>
-
-<h1>Alma</h1>
-
-<p>
-Two Hearts • One Vision
-</p>
-
-<div class="love-counter">
-
-💖 Together Since:
-<span id="daysTogether">0</span>
-days
-
-</div>
-
-</div>
-
 <div class="card">
 
-<div class="card-header"></div>
+<div class="card-top"></div>
+
+<img src="https://files.catbox.moe/xvqhco.jpg"/>
+
+<h2>Alma</h2>
+
+<p>
+The queen of my universe ✨
+</p>
+
+<div class="badge">
+Soul Mate 💖
+</div>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<div class="glass">
+
+<h2>
+⏳ Love Timer
+</h2>
+
+<div class="timer-grid">
+
+<div class="timer-box">
+<span id="days">0</span>
+<p>Days</p>
+</div>
+
+<div class="timer-box">
+<span id="hours">0</span>
+<p>Hours</p>
+</div>
+
+<div class="timer-box">
+<span id="minutes">0</span>
+<p>Minutes</p>
+</div>
+
+<div class="timer-box">
+<span id="seconds">0</span>
+<p>Seconds</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<div class="glass">
+
+<h2>
+📸 Memories Gallery
+</h2>
+
+<div class="gallery">
+
+<img
+src="https://files.catbox.moe/f7x9f6.jpg"
+onclick="openImg(this.src)"
+/>
 
 <img
 src="https://files.catbox.moe/xvqhco.jpg"
 onclick="openImg(this.src)"
 />
 
-<h2>Alma</h2>
-
-<p>
-The light that makes my world beautiful.
-</p>
-
-<div class="badge">
-Soul Mate ✨
 </div>
 
 </div>
@@ -788,73 +918,18 @@ placeholder="Message title..."
 
 <textarea
 id="text"
-placeholder="Write your love message here..."
+placeholder="Write your message..."
 ></textarea>
 
-<div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;">
+<div style="margin-top:20px;">
 
 <button onclick="addMsg()">
-Add ❤️
-</button>
-
-<button
-class="delete-btn"
-onclick="deleteAllMsgs()"
->
-🗑 Delete All
+Send ❤️
 </button>
 
 </div>
 
 <div id="messages"></div>
-
-</div>
-
-</div>
-
-<div class="section">
-
-<div class="glass">
-
-<h2>
-⏳ Live Love Timer
-</h2>
-
-<div class="timer-grid">
-
-<div class="timer-box">
-
-<span id="days">0</span>
-
-<p>Days</p>
-
-</div>
-
-<div class="timer-box">
-
-<span id="hours">0</span>
-
-<p>Hours</p>
-
-</div>
-
-<div class="timer-box">
-
-<span id="minutes">0</span>
-
-<p>Minutes</p>
-
-</div>
-
-<div class="timer-box">
-
-<span id="seconds">0</span>
-
-<p>Seconds</p>
-
-</div>
-
-</div>
 
 </div>
 
@@ -881,29 +956,13 @@ onclick="closeImg()"
 <script>
 
 /* =========================
-LOADER
-========================= */
-
-window.addEventListener("load",()=>{
-
-setTimeout(()=>{
-
-document
-.getElementById("loader")
-.classList.add("loader-hide");
-
-},4000);
-
-});
-
-/* =========================
-BACKGROUND
+BACKGROUND PARTICLES
 ========================= */
 
 const bg =
 document.getElementById("bg");
 
-for(let i=0;i<180;i++){
+for(let i=0;i<220;i++){
 
 const s =
 document.createElement("span");
@@ -914,17 +973,39 @@ Math.random()*100+"%";
 s.style.animationDuration =
 (Math.random()*10+5)+"s";
 
+s.style.opacity =
+Math.random();
+
 bg.appendChild(s);
 
 }
 
 /* =========================
-MODE
+MODE SAVE
 ========================= */
+
+const savedTheme =
+localStorage.getItem("theme");
+
+if(savedTheme === "light"){
+
+document.body.classList.add("light");
+
+}
 
 function toggleMode(){
 
 document.body.classList.toggle("light");
+
+if(document.body.classList.contains("light")){
+
+localStorage.setItem("theme","light");
+
+}else{
+
+localStorage.setItem("theme","dark");
+
+}
 
 }
 
@@ -964,7 +1045,86 @@ window.toggleMusic =
 toggleMusic;
 
 /* =========================
-IMAGE VIEW
+TOAST
+========================= */
+
+function showToast(msg){
+
+const t =
+document.getElementById("toast");
+
+t.innerText = msg;
+
+t.style.opacity = "1";
+
+setTimeout(()=>{
+
+t.style.opacity = "0";
+
+},1500);
+
+}
+
+/* =========================
+HEART EXPLOSION
+========================= */
+
+function heartExplosion(e){
+
+for(let i=0;i<15;i++){
+
+const heart =
+document.createElement("div");
+
+heart.innerHTML = "❤️";
+
+heart.style.position = "fixed";
+
+heart.style.left =
+e.clientX+"px";
+
+heart.style.top =
+e.clientY+"px";
+
+heart.style.fontSize =
+(Math.random()*25+15)+"px";
+
+heart.style.pointerEvents =
+"none";
+
+heart.style.transition =
+"1s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.style.transform =
+`translate(
+${(Math.random()-0.5)*400}px,
+-${Math.random()*350}px
+)
+scale(0)`;
+
+heart.style.opacity = "0";
+
+},10);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},1000);
+
+}
+
+}
+
+window.heartExplosion =
+heartExplosion;
+
+/* =========================
+IMAGE MODAL
 ========================= */
 
 function openImg(src){
@@ -993,86 +1153,6 @@ document
 window.closeImg =
 closeImg;
 
-/* =========================
-TOAST
-========================= */
-
-function showToast(msg){
-
-const t =
-document.getElementById("toast");
-
-t.innerText = msg;
-
-t.style.opacity = "1";
-
-setTimeout(()=>{
-
-t.style.opacity = "0";
-
-},1500);
-
-}
-
-/* =========================
-HEART EFFECT
-========================= */
-
-function heartClick(e){
-
-for(let i=0;i<10;i++){
-
-const heart =
-document.createElement("div");
-
-heart.innerHTML = "❤️";
-
-heart.style.position = "fixed";
-
-heart.style.left =
-e.clientX+"px";
-
-heart.style.top =
-e.clientY+"px";
-
-heart.style.fontSize =
-(Math.random()*20+15)+"px";
-
-heart.style.transition =
-"1s";
-
-heart.style.pointerEvents =
-"none";
-
-document.body.appendChild(heart);
-
-setTimeout(()=>{
-
-heart.style.transform =
-`translate(
-${(Math.random()-0.5)*300}px,
--${Math.random()*300}px
-)
-scale(0)`;
-
-heart.style.opacity =
-"0";
-
-},10);
-
-setTimeout(()=>{
-
-heart.remove();
-
-},1000);
-
-}
-
-}
-
-window.heartClick =
-heartClick;
-
 </script>
 
 <script type="module">
@@ -1097,7 +1177,26 @@ supabaseKey
 );
 
 /* =========================
-TIMER SAVE
+USER ID
+========================= */
+
+let userId =
+localStorage.getItem("loveUserId");
+
+if(!userId){
+
+userId =
+crypto.randomUUID();
+
+localStorage.setItem(
+"loveUserId",
+userId
+);
+
+}
+
+/* =========================
+LOVE TIMER
 ========================= */
 
 let startTime =
@@ -1119,36 +1218,36 @@ parseInt(startTime);
 
 }
 
-function updateLoveTimer(){
+function updateTimer(){
 
-const now = Date.now();
+const now =
+Date.now();
 
 const diff =
 now - startTime;
 
 const d =
-Math.floor(diff / (1000*60*60*24));
+Math.floor(diff/(1000*60*60*24));
 
 const h =
-Math.floor((diff / (1000*60*60)) % 24);
+Math.floor((diff/(1000*60*60))%24);
 
 const m =
-Math.floor((diff / (1000*60)) % 60);
+Math.floor((diff/(1000*60))%60);
 
 const s =
-Math.floor((diff / 1000) % 60);
+Math.floor((diff/1000)%60);
 
 document.getElementById("days").innerText = d;
 document.getElementById("hours").innerText = h;
 document.getElementById("minutes").innerText = m;
 document.getElementById("seconds").innerText = s;
-document.getElementById("daysTogether").innerText = d;
 
 }
 
-setInterval(updateLoveTimer,1000);
+setInterval(updateTimer,1000);
 
-updateLoveTimer();
+updateTimer();
 
 /* =========================
 COPY
@@ -1156,30 +1255,9 @@ COPY
 
 async function copyText(text){
 
-try{
-
 await navigator.clipboard.writeText(text);
 
 showToast("Copied ❤️");
-
-}catch(err){
-
-const temp =
-document.createElement("textarea");
-
-temp.value = text;
-
-document.body.appendChild(temp);
-
-temp.select();
-
-document.execCommand("copy");
-
-temp.remove();
-
-showToast("Copied ❤️");
-
-}
 
 }
 
@@ -1195,13 +1273,6 @@ async function loadMessages(){
 const container =
 document.getElementById("messages");
 
-container.innerHTML =
-`
-<div class="msg">
-Loading...
-</div>
-`;
-
 const { data , error } =
 await supabase
 .from("love_messages")
@@ -1211,13 +1282,6 @@ ascending:false
 });
 
 if(error){
-
-container.innerHTML =
-`
-<div class="msg">
-Error loading messages
-</div>
-`;
 
 console.log(error);
 
@@ -1241,6 +1305,9 @@ return;
 }
 
 data.forEach((msg)=>{
+
+const isMine =
+msg.user_id === userId;
 
 const div =
 document.createElement("div");
@@ -1269,20 +1336,34 @@ ${msg.text}
 
 </p>
 
+<br>
+
+<small>
+
+${new Date(msg.created_at)
+.toLocaleString()}
+
+</small>
+
 <div class="msg-actions">
 
 <button onclick='copyText(${JSON.stringify(msg.text)})'>
 📋 Copy
 </button>
 
+${
+isMine
+?
+`
 <button
 class="delete-btn"
-onclick="deleteMessage(${msg.id})"
->
-
+onclick="deleteMessage(${msg.id})">
 🗑 Delete
-
 </button>
+`
+:
+""
+}
 
 </div>
 
@@ -1342,7 +1423,8 @@ await supabase
 
 username,
 title,
-text
+text,
+user_id:userId
 
 }]);
 
@@ -1360,7 +1442,7 @@ document.getElementById("username").value = "";
 document.getElementById("title").value = "";
 document.getElementById("text").value = "";
 
-showToast("Message Added ❤️");
+showToast("Message Sent ❤️");
 
 loadMessages();
 
@@ -1383,7 +1465,8 @@ if(!ask) return;
 await supabase
 .from("love_messages")
 .delete()
-.eq("id",id);
+.eq("id",id)
+.eq("user_id",userId);
 
 showToast("Deleted 🗑");
 
@@ -1393,31 +1476,6 @@ loadMessages();
 
 window.deleteMessage =
 deleteMessage;
-
-/* =========================
-DELETE ALL
-========================= */
-
-async function deleteAllMsgs(){
-
-const ask =
-confirm("Delete all messages?");
-
-if(!ask) return;
-
-await supabase
-.from("love_messages")
-.delete()
-.neq("id",0);
-
-showToast("All deleted");
-
-loadMessages();
-
-}
-
-window.deleteAllMsgs =
-deleteAllMsgs;
 
 /* =========================
 REALTIME
